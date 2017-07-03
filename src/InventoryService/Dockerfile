@@ -1,7 +1,16 @@
-FROM microsoft/aspnetcore
-
+FROM microsoft/dotnet:1.1-sdk AS build-env
 WORKDIR /app
 
-COPY bin/Release/PublishOutput .
+# copy csproj and restore as distinct layers
+COPY *.csproj ./
+RUN dotnet restore
 
+# copy everything else and build
+COPY . ./
+RUN dotnet publish -c Release -o out
+
+# build runtime image
+FROM microsoft/dotnet:1.1-runtime 
+WORKDIR /app
+COPY --from=build-env /app/out ./
 ENTRYPOINT ["dotnet", "InventoryService.dll"]

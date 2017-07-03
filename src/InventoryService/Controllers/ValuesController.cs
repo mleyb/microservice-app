@@ -8,47 +8,21 @@ using Microsoft.Extensions.Logging;
 namespace InventoryService.Controllers
 {
     [Route("api/[controller]")]
-    public class ValuesController : Controller
+    public class InventoryController : Controller
     {
         private ILogger _logger;
 
-        public ValuesController(ILogger<ValuesController> logger)
+        public InventoryController(ILogger<InventoryController> logger)
         {
             _logger = logger;
         }
 
-        // GET api/values
         [HttpGet]
-        public IEnumerable<string> Get()
+        public string Get()
         {
-            _logger.LogDebug("Call to BillingService.Controllers.ValuesController.Get()");
+            _logger.LogDebug($"Call to InventoryService.Controllers.ValuesController.Get() on {Environment.MachineName}");
 
-            return new string[] { "value1", "value2" };
-        }
-
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            return $"Hello from {Environment.MachineName}";
         }
     }
 }

@@ -3,20 +3,26 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryService", "src\InventoryService\InventoryService.csproj", "{3A18C5D7-6D88-4DDB-9E0F-B958893042EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InventoryService", "src\InventoryService\InventoryService.csproj", "{3A18C5D7-6D88-4DDB-9E0F-B958893042EF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{66BF6EBF-0A1B-4C2B-B19B-B123963B5856}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillingService", "src\BillingService\BillingService.csproj", "{B9929958-F351-4D32-9B7C-B1BD28B826BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BillingService", "src\BillingService\BillingService.csproj", "{B9929958-F351-4D32-9B7C-B1BD28B826BF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AE9F82D0-83E2-4A6B-A0A3-5C0952C29811}"
 	ProjectSection(SolutionItems) = preProject
 		docker-compose.yml = docker-compose.yml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Redis", "Redis", "{9FA23CF5-7EB8-4BF0-949E-E98EFFBEA6A6}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "redis", "redis", "{9FA23CF5-7EB8-4BF0-949E-E98EFFBEA6A6}"
 	ProjectSection(SolutionItems) = preProject
 		src\Redis\Dockerfile = src\Redis\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nginx", "nginx", "{DEE4048F-1248-407D-A656-403375F02D2E}"
+	ProjectSection(SolutionItems) = preProject
+		src\Nginx\Dockerfile = src\Nginx\Dockerfile
+		nginx.conf = nginx.conf
 	EndProjectSection
 EndProject
 Global
@@ -41,5 +47,6 @@ Global
 		{3A18C5D7-6D88-4DDB-9E0F-B958893042EF} = {66BF6EBF-0A1B-4C2B-B19B-B123963B5856}
 		{B9929958-F351-4D32-9B7C-B1BD28B826BF} = {66BF6EBF-0A1B-4C2B-B19B-B123963B5856}
 		{9FA23CF5-7EB8-4BF0-949E-E98EFFBEA6A6} = {66BF6EBF-0A1B-4C2B-B19B-B123963B5856}
+		{DEE4048F-1248-407D-A656-403375F02D2E} = {66BF6EBF-0A1B-4C2B-B19B-B123963B5856}
 	EndGlobalSection
 EndGlobal

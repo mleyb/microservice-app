@@ -2,6 +2,15 @@ version: '3.2'
 
 services:
 
+  nginx:
+    build: ./nginx
+    #links:
+      #- node1:node1
+      #- node2:node2
+      #- node3:node3
+    ports:
+      - "80:80"
+
   inventory-service:
     build:
       context: ./src/InventoryService
@@ -26,7 +35,8 @@ services:
       #- inventory-service
 
   redis:
-    image: redis:3.2.100-nanoserver
+    #image: redis:3.2.100-nanoserver
+    image: redis
     container_name: redis
     ports:
       - "6379:6379"
