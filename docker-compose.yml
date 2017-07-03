@@ -1,0 +1,39 @@
+version: '3.2'
+
+services:
+
+  inventory-service:
+    build:
+      context: ./src/InventoryService
+    container_name: inventory-service
+    ports:
+      - "8000:80"
+    depends_on:
+      - redis
+
+  billing-service:
+    build:
+      context: ./src/BillingService
+    container_name: billing-service
+    ports:
+      - "8001:80"
+    depends_on:
+      - redis
+
+    #environment:
+      #- "Endpoints:Backend=http://inventory-service:80"    
+    #depends_on:
+      #- inventory-service
+
+  redis:
+    image: redis:3.2.100-nanoserver
+    container_name: redis
+    ports:
+      - "6379:6379"
+
+  #redis:
+    #build:
+      #context: ./src/Redis
+    #container_name: redis-server
+    #ports:
+      #- "6379:6379"

@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryService", "src\InventoryService\InventoryService.csproj", "{3A18C5D7-6D88-4DDB-9E0F-B958893042EF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{66BF6EBF-0A1B-4C2B-B19B-B123963B5856}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillingService", "src\BillingService\BillingService.csproj", "{B9929958-F351-4D32-9B7C-B1BD28B826BF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AE9F82D0-83E2-4A6B-A0A3-5C0952C29811}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Redis", "Redis", "{9FA23CF5-7EB8-4BF0-949E-E98EFFBEA6A6}"
+	ProjectSection(SolutionItems) = preProject
+		src\Redis\Dockerfile = src\Redis\Dockerfile
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3A18C5D7-6D88-4DDB-9E0F-B958893042EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A18C5D7-6D88-4DDB-9E0F-B958893042EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A18C5D7-6D88-4DDB-9E0F-B958893042EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A18C5D7-6D88-4DDB-9E0F-B958893042EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9929958-F351-4D32-9B7C-B1BD28B826BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9929958-F351-4D32-9B7C-B1BD28B826BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9929958-F351-4D32-9B7C-B1BD28B826BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9929958-F351-4D32-9B7C-B1BD28B826BF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3A18C5D7-6D88-4DDB-9E0F-B958893042EF} = {66BF6EBF-0A1B-4C2B-B19B-B123963B5856}
+		{B9929958-F351-4D32-9B7C-B1BD28B826BF} = {66BF6EBF-0A1B-4C2B-B19B-B123963B5856}
+		{9FA23CF5-7EB8-4BF0-949E-E98EFFBEA6A6} = {66BF6EBF-0A1B-4C2B-B19B-B123963B5856}
+	EndGlobalSection
+EndGlobal
