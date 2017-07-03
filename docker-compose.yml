@@ -2,14 +2,13 @@ version: '3.2'
 
 services:
 
-  nginx:
-    build: ./nginx
+  #nginx:
+    #build: ./src/nginx
     #links:
-      #- node1:node1
-      #- node2:node2
-      #- node3:node3
-    ports:
-      - "80:80"
+      #- inventory-service:inventory-service
+      #- billing-service:billing-service
+    #ports:
+      #- "80:80"
 
   inventory-service:
     build:
