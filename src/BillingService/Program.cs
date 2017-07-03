@@ -17,6 +17,7 @@ namespace BillingService
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseIISIntegration()
                 .UseStartup<Startup>()
+                .UseUrls("http://*:80")
                 .UseApplicationInsights()
                 .Build();
 

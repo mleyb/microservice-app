@@ -5,14 +5,14 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace InventoryService.Controllers
+namespace BillingService.Controllers
 {
-    [Route("api/[controller]")]
-    public class InventoryController : Controller
+    [Route("[controller]")]
+    public class BillingController : Controller
     {
         private ILogger _logger;
 
-        public InventoryController(ILogger<InventoryController> logger)
+        public BillingController(ILogger<BillingController> logger)
         {
             _logger = logger;
         }
@@ -20,7 +20,7 @@ namespace InventoryService.Controllers
         [HttpGet]
         public string Get()
         {
-            _logger.LogDebug($"Call to InventoryService.Controllers.ValuesController.Get() on {Environment.MachineName}");
+            _logger.LogDebug($"Call to BillingController.Get() on {Environment.MachineName}");
 
             return $"Hello from {Environment.MachineName}";
         }
