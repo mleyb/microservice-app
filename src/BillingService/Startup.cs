@@ -12,8 +12,12 @@ namespace BillingService
 {
     public class Startup
     {
-        public Startup(IHostingEnvironment env)
+        public Startup(IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+            loggerFactory.AddConsole((str, level) => {
+                    return !str.Contains("Microsoft.AspNetCore") && level >= LogLevel.Trace;
+            });
+
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
