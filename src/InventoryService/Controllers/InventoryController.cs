@@ -22,7 +22,7 @@ namespace InventoryService.Controllers
         {
             _logger.LogDebug($"Call to InventoryController.Get() on {Environment.MachineName}");
 
-            return $"Hello from {Environment.MachineName}";
+            return $"Hello from InventoryService {Environment.MachineName}";
         }
     }
 }
