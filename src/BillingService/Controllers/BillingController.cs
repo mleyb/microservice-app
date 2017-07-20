@@ -22,7 +22,7 @@ namespace BillingService.Controllers
         {
             _logger.LogDebug($"Call to BillingController.Get() on {Environment.MachineName}");
 
-            return $"Hello from {Environment.MachineName}";
+            return $"Hello from BillingService on {Environment.MachineName}";
         }
     }
 }
