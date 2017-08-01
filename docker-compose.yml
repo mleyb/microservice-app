@@ -34,8 +34,8 @@ services:
     image: nats
     ports:
       - "4222:4222"
-    #networks:
-      #- app-net
+    networks:
+      - app-net
 
     #environment:
       #- "Endpoints:Backend=http://inventory-service:80"    
