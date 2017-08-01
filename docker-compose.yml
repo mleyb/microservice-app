@@ -32,6 +32,7 @@ services:
 
   message-queue:
     image: nats
+    container_name: message-queue
     ports:
       - "4222:4222"
     networks:
@@ -44,6 +45,7 @@ services:
 
   mysql:
     image: mysql
+    container_name: mysql
     environment:
       MYSQL_ROOT_PASSWORD: mypassword
 
