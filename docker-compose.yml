@@ -38,11 +38,6 @@ services:
     networks:
       - app-net
 
-    #environment:
-      #- "Endpoints:Backend=http://inventory-service:80"    
-    #depends_on:
-      #- inventory-service
-
   mysql:
     image: mysql
     container_name: mysql
@@ -59,14 +54,7 @@ services:
       - "6379:6379"
     networks:
       - app-net
-
-  #redis:
-    #build:
-      #context: ./src/Redis
-    #container_name: redis-server
-    #ports:
-      #- "6379:6379"
-
+      
 networks:
   app-net:
     driver: bridge
