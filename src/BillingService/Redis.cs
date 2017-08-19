@@ -10,27 +10,36 @@ namespace BillingService
 {
     public interface IRedis
     {
-        void DoIt();
+        TimeSpan Ping();
     }
 
     public class Redis : IRedis
     {
-        private ILogger<Redis> _logger;
+        private static readonly Lazy<ConnectionMultiplexer> _connection;
 
-        public Redis(ILogger<Redis> logger)
+        static Redis()
         {
-            _logger = logger;
+            string connectionString = GetConnectionString();
+
+            _connection = new Lazy<ConnectionMultiplexer>(() => ConnectionMultiplexer.Connect(connectionString));
         }
 
-        public void DoIt()
+        public TimeSpan Ping()
         {
-var dnsTask = Dns.GetHostAddressesAsync("redis");
-var addresses = dnsTask.Result;
-var connect = string.Join(",", addresses.Select(x => x.MapToIPv4().ToString() + ":" + "6379"));
+            IDatabase db = GetConnection().GetDatabase();
 
-            ConnectionMultiplexer redis = ConnectionMultiplexer.Connect(connect);
-            IDatabase db = redis.GetDatabase();
-            _logger.LogDebug(db.Ping().ToString());
+            return db.Ping();
+        }
+
+        private static ConnectionMultiplexer GetConnection() => _connection.Value;
+
+        private static string GetConnectionString()
+        {
+            IPAddress[] addresses = Dns.GetHostAddressesAsync("redis").Result;
+            
+            string connectionString = String.Join(",", addresses.Select(x => x.MapToIPv4().ToString() + ":" + "6379"));
+        
+            return connectionString;
         }
     }
 }
