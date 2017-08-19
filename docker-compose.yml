@@ -18,6 +18,8 @@ services:
       - "8000:80"
     depends_on:
       - mysql
+    networks:
+      - app-net
 
   billing-service:
     build:
@@ -45,6 +47,8 @@ services:
       - 3306:3306
     environment:
       MYSQL_ROOT_PASSWORD: mypassword
+    networks:
+      - app-net
 
   redis:
     #image: redis:3.2.100-nanoserver
