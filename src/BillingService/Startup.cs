@@ -7,23 +7,25 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Serilog;
 
 namespace BillingService
 {
     public class Startup
     {
-        public Startup(IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public Startup(IHostingEnvironment env)
         {
-            loggerFactory.AddConsole((str, level) => {
-                    return !str.Contains("Microsoft.AspNetCore") && level >= LogLevel.Trace;
-            });
-
-            var builder = new ConfigurationBuilder()
+            Configuration  = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
-                .AddEnvironmentVariables();
-            Configuration = builder.Build();
+                .AddEnvironmentVariables()
+                .Build();
+        
+            Log.Logger = new LoggerConfiguration()
+                .Enrich.FromLogContext()
+                .WriteTo.LiterateConsole()
+                .CreateLogger();
         }
 
         public IConfigurationRoot Configuration { get; }
@@ -31,7 +33,12 @@ namespace BillingService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // Add framework services.
+            services.AddLogging(builder =>
+            {
+                // Specifying dispose: true closes and flushes the Serilog `Log` class when the app shuts down.
+                builder.AddSerilog(dispose: true);
+            });
+
             services.AddMvc();
 
             services.AddScoped<IRedis, Redis>();
@@ -40,9 +47,6 @@ namespace BillingService
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-            loggerFactory.AddDebug();
-
             app.UseMvc();
         }
     }

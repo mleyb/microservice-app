@@ -18,7 +18,6 @@ namespace BillingService
                 .UseIISIntegration()
                 .UseStartup<Startup>()
                 .UseUrls("http://*:80")
-                .UseApplicationInsights()
                 .Build();
 
             host.Run();
