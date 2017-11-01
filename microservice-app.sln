@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.14
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InventoryService", "src\InventoryService\InventoryService.csproj", "{3A18C5D7-6D88-4DDB-9E0F-B958893042EF}"
 EndProject
@@ -25,6 +25,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nginx", "nginx", "{DEE4048F
 		src\nginx\nginx.conf = src\nginx\nginx.conf
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderProcessorService", "src\OrderProcessorService\OrderProcessorService.csproj", "{5022E827-149B-4F19-9F56-57F0CCD107EA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{B9929958-F351-4D32-9B7C-B1BD28B826BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9929958-F351-4D32-9B7C-B1BD28B826BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9929958-F351-4D32-9B7C-B1BD28B826BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5022E827-149B-4F19-9F56-57F0CCD107EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5022E827-149B-4F19-9F56-57F0CCD107EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5022E827-149B-4F19-9F56-57F0CCD107EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5022E827-149B-4F19-9F56-57F0CCD107EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,5 +54,9 @@ Global
 		{B9929958-F351-4D32-9B7C-B1BD28B826BF} = {66BF6EBF-0A1B-4C2B-B19B-B123963B5856}
 		{9FA23CF5-7EB8-4BF0-949E-E98EFFBEA6A6} = {66BF6EBF-0A1B-4C2B-B19B-B123963B5856}
 		{DEE4048F-1248-407D-A656-403375F02D2E} = {66BF6EBF-0A1B-4C2B-B19B-B123963B5856}
+		{5022E827-149B-4F19-9F56-57F0CCD107EA} = {66BF6EBF-0A1B-4C2B-B19B-B123963B5856}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FC76A56A-AEA1-4A04-86F5-42BB4DBB1A02}
 	EndGlobalSection
 EndGlobal

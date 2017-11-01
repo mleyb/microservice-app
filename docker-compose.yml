@@ -32,6 +32,15 @@ services:
     networks:
       - app-net
 
+  order-processor-service:
+    build:
+      context: ./src/OrderProcessorService
+    container_name: order-processor-service
+    depends_on:
+      - message-queue
+    networks:
+      - app-net
+
   message-queue:
     image: nats
     container_name: message-queue
