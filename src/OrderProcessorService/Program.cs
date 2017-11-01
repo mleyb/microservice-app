@@ -7,23 +7,23 @@ namespace OrderProcessorService
 {
     class Program
     {
-        private const string MessageSubject = "OrderPlaced";
-
         private static readonly ManualResetEvent _resetEvent = new ManualResetEvent(false);
 
         static void Main(string[] args)
         {
             Console.WriteLine($"Connecting to message queue url: {Config.MessageQueueUrl}");
 
-            using (var connection = MessageQueue.CreateConnection())
+            using (IConnection connection = MessageQueue.CreateConnection())
             {
-                var subscription = connection.SubscribeAsync(MessageSubject);
+                Console.WriteLine($"Connection state is: {connection.State}");
+
+                IAsyncSubscription subscription = connection.SubscribeAsync(OrderPlacedEvent.Name);
 
                 subscription.MessageHandler += HandlePlacedOrder;
 
                 subscription.Start();
 
-                Console.WriteLine($"Listening on subject: {MessageSubject}");
+                Console.WriteLine($"Listening on subject: {OrderPlacedEvent.Name}");
 
                 _resetEvent.WaitOne();
 

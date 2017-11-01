@@ -32,10 +32,25 @@ services:
     networks:
       - app-net
 
+  order-service:
+    build:
+      context: ./src/OrderService
+    container_name: order-service
+    ports:
+      - "8002:80"
+    environment: 
+      - MESSAGE_QUEUE_URL=nats://message-queue:4222
+    depends_on:
+      - message-queue
+    networks:
+      - app-net
+
   order-processor-service:
     build:
       context: ./src/OrderProcessorService
     container_name: order-processor-service
+    environment: 
+      - MESSAGE_QUEUE_URL=nats://message-queue:4222
     depends_on:
       - message-queue
     networks:

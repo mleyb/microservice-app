@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace OrderProcessorService
+namespace OrderService
 {
     public class Config
     {
