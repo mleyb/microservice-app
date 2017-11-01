@@ -10,8 +10,8 @@ namespace BillingService.Controllers
     [Route("[controller]")]
     public class BillingController : Controller
     {
-        private ILogger _logger;
-        private IRedis _redis;
+        private readonly ILogger _logger;
+        private readonly IRedis _redis;
 
         public BillingController(ILogger<BillingController> logger, IRedis redis)
         {

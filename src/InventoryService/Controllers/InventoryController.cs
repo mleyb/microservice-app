@@ -10,7 +10,7 @@ namespace InventoryService.Controllers
     [Route("[controller]")]
     public class InventoryController : Controller
     {
-        private ILogger _logger;
+        private readonly ILogger _logger;
 
         public InventoryController(ILogger<InventoryController> logger)
         {
